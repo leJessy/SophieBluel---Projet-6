@@ -7,17 +7,23 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 	<meta name="description" content="">
 	<link rel="stylesheet" href="./assets/style.css">
 </head>
 <body>
+<div class="edit">
+	<i class="fa-regular fa-pen-to-square"></i>
+	<button class="edition-btn">Mode édition</button>
+	<button class="publish-btn">publier les changements</button>
+</div>
 <header>
 	<h1>Sophie Bluel <span>Architecte d'inteérieur</span></h1>
 	<nav>
 		<ul>
 			<a href="#portfolio"><li>projets</li></a>
 			<a href="#contact"><li>contact</li></a>
-			<a href="./login.html"><li>login</li></a>
+			<a href="./login.html"><li id="loginlogout">login</li></a>
 			<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
 		</ul>
 	</nav>
@@ -34,13 +40,19 @@
 			<p>En cas de besoin, une équipe pluridisciplinaire peut-être constituée : architecte DPLG, décorateur(trice)</p>
 		</article>
 	</section>
+	<button class="modifier1 modifier-btn">
+		<i class="fa-regular fa-pen-to-square"></i>&ensp;modifier
+	</button>
 	<section id="portfolio">
 		<h2>Mes Projets</h2>
+		<button class="modifier2 modifier-btn">
+			<i class="fa-regular fa-pen-to-square"></i>&ensp;modifier
+		</button>
 		<div id="button-container">
-			<button id="filter-btnAll">Tous</button>
-			<button id="filter-btnObjets">Objets</button>
-			<button id="filter-btnAppartements">Appartements</button>
-			<button id="filter-btnHotels">Hôtels & restaurants</button>
+			<button class="filter-btn" id="filter-btnAll">Tous</button>
+			<button class="filter-btn" id="filter-btnObjets">Objets</button>
+			<button class="filter-btn" id="filter-btnAppartements">Appartements</button>
+			<button class="filter-btn" id="filter-btnHotels">Hôtels & restaurants</button>
 		</div>
 		<div class="gallery">	
 		</div>

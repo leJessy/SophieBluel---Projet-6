@@ -65,7 +65,39 @@ fetch('http://localhost:5678/api/works')
   });
 
   
-const token = sessionStorage.accessToken;
+const token = sessionStorage.getItem('token');
+const loginlogout = document.getElementById('loginlogout');
+const edit = document.querySelector('.edit');
+const modifier = document.querySelector('.modifier1')
+const modifier2 = document.querySelector('.modifier2')
+
+
+// Changement login en logout si token
+if (token) {
+  loginlogout.innerText = 'logout';
+} else {
+  loginlogout.innerText = 'login';
+}
+
+// Suppression du token lorsque je clique sur login et que le token est présent
+loginlogout.addEventListener('click', function(event) {
+  if (token) {
+    event.preventDefault();
+    sessionStorage.removeItem('token');
+    location.reload();
+  }
+})
+
+if (token) {
+  edit.style = 'display: flex';
+  modifier.style = 'display: block';
+  modifier2.style = 'display: block';
+}
+
+
+
+
+
 
 
 
