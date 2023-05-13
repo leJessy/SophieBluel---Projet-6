@@ -2,11 +2,10 @@ fetch('http://localhost:5678/api/works')
   .then(response => response.json())
   .then(data => {
     const gallery = document.querySelector('.gallery');
-
     const figures = data.map(item => {
-      const figure = document.createElement('figure');
-      const img = document.createElement('img');
-      const figcaption = document.createElement('figcaption');
+    const figure = document.createElement('figure');
+    const img = document.createElement('img');
+    const figcaption = document.createElement('figcaption');
 
       img.src = item.imageUrl;
       img.alt = item.title;
@@ -70,6 +69,13 @@ const loginlogout = document.getElementById('loginlogout');
 const edit = document.querySelector('.edit');
 const modifier = document.querySelector('.modifier1')
 const modifier2 = document.querySelector('.modifier2')
+const modalwrapper = document.querySelector('.modal-wrapper')
+const firstmodal = document.getElementById('modal')
+const secondmodal = document.getElementById('modal2')
+const croix = document.querySelector('.exit1')
+const secondcroix = document.querySelector('.exit2')
+const addproject = document.querySelector('.newproject')
+const backarrow = document.querySelector('.arrow')
 
 
 // Changement login en logout si token
@@ -88,20 +94,62 @@ loginlogout.addEventListener('click', function(event) {
   }
 })
 
+//Affichage des boutons modifier si le token est présent
 if (token) {
   edit.style = 'display: flex';
   modifier.style = 'display: block';
   modifier2.style = 'display: block';
 }
 
+// Ouverture de la modal
+function openModal() {
+  modifier2.addEventListener('click', function() {
+    modalwrapper.style.display = 'flex';
+    firstmodal.style.display = 'flex';
+  })
+}
+openModal()
+
+// Fermeture de la modal au clique sur le wrapper (toute la page)
+document.addEventListener('click', function(event) {
+  if (event.target === modalwrapper) {
+    modalwrapper.style.display = 'none';
+    secondmodal.style.display = 'none';
+  }
+})
+
+// Fermeture de la modal au clique sur la croix
+function closeModal() {
+  croix.addEventListener('click', function() {
+    modalwrapper.style.display = 'none';
+    secondmodal.style.display = 'none';
+  })
+}
+closeModal()
+
+// Boutton pour ajouter un nouveau projet
+addproject.addEventListener('click', function() {
+  firstmodal.style.display = 'none';
+  secondmodal.style.display = 'flex';
+})
+
+// Fermeture second modal au clique sur la croix
+function closeModal2() {
+  secondcroix.addEventListener('click', function() {
+    modalwrapper.style.display = 'none';
+    secondmodal.style.display = 'none';
+  })
+}
+closeModal2()
+
+// Revenir à la première modal
+backarrow.addEventListener('click', function() {
+  firstmodal.style.display = 'flex';
+  secondmodal.style.display = 'none';
+})
 
 
 
 
-
-
-
-
-  
 
 

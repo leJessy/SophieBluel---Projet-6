@@ -48,6 +48,42 @@
 		<button class="modifier2 modifier-btn">
 			<i class="fa-regular fa-pen-to-square"></i>&ensp;modifier
 		</button>
+		<div class="modal-wrapper">
+			<div id="modal">
+				<button class="exit exit1">
+					<i class="fa-regular fa-xmark"></i>
+				</button>
+				<h2>Galerie photo</h2>
+				<div class="gallery-container"></div>
+				<div class="lignehorizontal"></div>
+				<button class="newproject">Ajouter une photo</button>
+				<p>Supprimer la galerie</p>
+			</div>
+			<div id="modal2">
+				<button class="arrow">
+					<i class="fa-regular fa-arrow-left-long"></i>
+				</button>
+				<button class="exit exit2">
+					<i class="fa-regular fa-xmark"></i>
+				</button>
+				<h2>Ajout photo</h2>
+				<form action="#" method="post" id="sendImg">
+					<div class="addImg">
+						<i class="fa-regular fa-image"></i>
+						<label for="uploadImg">+ Ajouter photo</label>
+						<input type="file" id="uploadImg" onchange="previewImage(event)">
+						<img id="preview">
+						<p>jpg, png : 4mo max</p>
+					</div>
+					<label for="titre">Titre</label>
+					<input type="text" name="titre" id="titre">
+					<label for="categorie">Catégorie</label>
+					<select name="categorie" id="categorie"></select>
+					<div class="lignehorizontal"></div>
+					<button type="submit" class="valid">Valider</button>
+				</form>
+			</div>
+		</div>
 		<div id="button-container">
 			<button class="filter-btn" id="filter-btnAll">Tous</button>
 			<button class="filter-btn" id="filter-btnObjets">Objets</button>
