@@ -1,65 +1,30 @@
 let works = [];
 
-fetch("http://localhost:5678/api/works")
+
+function showGallery() {
+  fetch("http://localhost:5678/api/works")
   .then((response) => response.json())
   .then((data) => {
     works = data;
     const gallery = document.querySelector(".gallery");
+    gallery.innerHTML = "";
     const figures = data.map((item) => {
-      const figure = document.createElement("figure");
-      const img = document.createElement("img");
-      const figcaption = document.createElement("figcaption");
-      img.src = item.imageUrl;
-      img.alt = item.title;
-      figure.classList.add(item.category.name.replace(/\s+/g, "_"));
-      figure.setAttribute("data-category", item.category.name);
-      figure.setAttribute("data-id", item.id);
-
-      figcaption.textContent = item.title;
-
-      figure.appendChild(img);
-      figure.appendChild(figcaption);
-
-      return figure;
+    const figure = document.createElement("figure");
+    const img = document.createElement("img");
+    const figcaption = document.createElement("figcaption");
+    img.src = item.imageUrl;
+    img.alt = item.title;
+    figure.classList.add(item.category.name.replace(/\s+/g, "_"));
+    figure.setAttribute("data-category", item.category.name);
+    figure.setAttribute("data-id", item.id);
+    figcaption.textContent = item.title;
+    figure.appendChild(img);
+    figure.appendChild(figcaption);
+    return figure;
     });
-
-    /* let works = [];
-
-fetch('http://localhost:5678/api/works')
-  .then(response => response.json())
-  .then(data => {
-      works = data;
-      const gallery = document.querySelector('.gallery');
-      const figures = works.map(item => {
-      const figure = document.createElement('figure');
-      const img = document.createElement('img');
-      const figcaption = document.createElement('figcaption');
-    
-      img.src = item.imageUrl;
-      img.alt = item.title;
-      figure.classList.add(item.category.name.replace(/\s+/g, '_'));
-      figure.setAttribute('data-category', item.category.name);
-      figure.setAttribute('data-id', item.id);
-    
-      figcaption.textContent = item.title;
-    
-      figure.appendChild(img);
-      figure.appendChild(figcaption);
-    
-      return figure;
-      });
-      gallery.append(...figures);
-}); */
-
     // Ajout de chaque "figure" à la balise gallery
     gallery.append(...figures);
-    /* const modal = document.querySelector('.gallery-container');
-    modal.append(...figures);
-    
-    const figuresWithDelete = figures.map(item => {
-      item.appendChild(deleteButton);
-      });
- */
+
     // Séléction des différents boutons
     const filterBtnAll = document.querySelector("#filter-btnAll");
     const filterBtnObjets = document.querySelector("#filter-btnObjets");
@@ -87,7 +52,7 @@ fetch('http://localhost:5678/api/works')
     // Filtrage de mes catégories pour pouvoir afficher que certaines catégories lors du clique sur les boutons
     function filterFigures(categoryName) {
       if (categoryName === "All") {
-        gallery.innerHTML = "";
+        gallery.HinnerTML = "";
         gallery.append(...figures);
       } else {
         // Selection du nom de chaque catégorie pour afficher seulement 1 catégorie par bouton
@@ -101,6 +66,8 @@ fetch('http://localhost:5678/api/works')
       }
     }
   });
+}
+showGallery();
 
 const token = sessionStorage.getItem("token");
 const loginlogout = document.getElementById("loginlogout");
@@ -231,10 +198,10 @@ async function delWork(workId) {
 
 async function confirmDelWork(workId) {
   if (confirm("Êtes-vous sûr de vouloir supprimer ce projet ?")) {
-    // modalGallery = modalGallery.filter(work => work.id !== workId);
     await delWork(workId);
-    // galleryContainer.innerHTML = "";
+    galleryContainer.innerHTML = "";
     showGalleryInModal();
+    showGallery();
   }
 }
 
