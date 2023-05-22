@@ -325,7 +325,6 @@ ul a {
 	position: fixed;
 	top: 0;
 	left: 0;
-	/* z-index: 1; */
 }
 
 #modal, #modal2 {
@@ -429,14 +428,12 @@ ul a {
 	background: #A7A7A7;
 	border-radius: 60px;
 	border: none;
-	padding: 10px 50px;
+	padding: 15px 50px;
 	margin: 38px auto 23px auto;
 	width: 240px;
 }
 
 #modal p {
-	font-family: 'Work Sans';
-	font-weight: 400;
 	color: #D65353;
 }
 
@@ -456,7 +453,7 @@ ul a {
  margin: 21px 0 10px 0;
 }
 
-.addImg {
+.ajoutImg {
 	margin: 0 auto;
 	width: 420px;
 	height: 170px;
@@ -468,28 +465,28 @@ ul a {
 	margin-bottom: 9px;
 }
 
-.addImg i {
+.ajoutImg i {
 	font-size: 46px;
 	color: #B9C5CC;
 	padding-top: 28px;
 }
 
-.addImg input {
+.ajoutImg input {
 	display: none;
 }
 
-.addImg label {
+.ajoutImg label {
 	color: #306685;
 	background: #CBD6DC;
 	padding: 10px 33px;
 	border-radius: 50px;
 }
 
-.addImg p {
+.ajoutImg p {
 	padding-bottom: 19px;
 }
 
-.envoyer {
+.validok {
 	background: #1D6154;
 }
 
